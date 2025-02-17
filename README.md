@@ -1,16 +1,14 @@
+Clone project
 
-Clonar proyecto
+Run npm install or yarn
 
-npm install
+Clone the .env.example file and rename it to .env
 
-Clonar el archivo .env.example y renombrarlo a .env
+Update the environment variables
 
-Cambiar las variables de entorno
 
-crear la base de datos
 
-npm run start:dev
 
-correr los seeders : npm run seed:run
 
-Levantar: npm run start:dev
+
+
