@@ -1,26 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { UsersModule } from './modules/users/users.module';
-import typeorm from './config/typeorm';
-import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import { AiModule } from './modules/ai/ai.module';
 
 @Module({
   imports: [
     EventEmitterModule.forRoot(),
-    ConfigModule.forRoot({ isGlobal: true, cache: true, load: [typeorm] }),
-    TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: async (configService: ConfigService) =>
-        configService.get('typeorm'),
-    }),
-    // AuthModule,
-    UsersModule,
-    AuthModule,
-    // EmailModule,
+    ConfigModule.forRoot({ isGlobal: true, cache: true }),
+    AiModule,
   ],
   controllers: [AppController],
   providers: [AppService],
